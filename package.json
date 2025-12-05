@@ -9,6 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.4"
+    "astro": "^5.16.4",
+    "flickity": "^3.0.0",
+    "flickity-imagesloaded": "^2.0.0",
+    "motion": "^12.23.25"
+  },
+  "devDependencies": {
+    "@types/flickity": "^2.2.11"
   }
 }

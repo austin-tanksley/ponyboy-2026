@@ -1,0 +1,135 @@
+@import url("https://unpkg.com/open-props");
+
+:root {
+    /* Color palette */
+    --light-tan: #F1EDED;
+    --dark-tan: #DDCCBD;
+    --gunmetal: #212121;
+    --green: #6F8D69;
+    --green-dark: #5a7456;
+    --green-light: #8ba985;
+    
+    /* Semantic colors */
+    --color-text-primary: var(--gunmetal);
+    --color-text-inverse: var(--light-tan);
+    --color-bg-dark: var(--gunmetal);
+    --color-bg-light: var(--dark-tan);
+    --color-accent: var(--green);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    z-index: 1000;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* Typography scale */
+.h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.h1--fraunces {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.01em;
+}
+
+.h1--fraunces--bold {
+    color: var(--light-tan);
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
+}
+
+/* Selection styling */
+::selection {
+    background: var(--green);
+    color: white;
+}
+
+/* Image defaults */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

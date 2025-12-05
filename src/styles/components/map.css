@@ -1,0 +1,340 @@
+.map {
+    position: relative;
+    background: linear-gradient(180deg, var(--gunmetal) 0%, #1a1a1a 100%);
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+.map__header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.map__heading {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+
+.map__subtitle {
+    color: var(--light-tan);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.75;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.map__locations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.map__location {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.map__location:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(111, 141, 105, 0.3);
+}
+
+.map__location-header {
+    padding: 1.5rem 2rem;
+    /* background: linear-gradient(135deg, rgba(111, 141, 105, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); */
+    background: var(--gunmetal);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.map__location-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--green-light);
+    flex-shrink: 0;
+}
+
+.map__location-name {
+    font-family: "Fraunces", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--green-light);
+    margin: 0;
+}
+
+/* Map embed */
+.map__embed-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.map__embed-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.map__embed {
+    display: block;
+    width: 100%;
+    height: 280px;
+    border: none;
+    filter: grayscale(20%) contrast(1.05);
+    transition: filter var(--transition-base);
+}
+
+.map__location:hover .map__embed {
+    filter: grayscale(0%) contrast(1);
+}
+
+.map__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* Info details section */
+.map__details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.map__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.map__detail-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--green-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.map__detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.map__detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green-light);
+    font-weight: 600;
+}
+
+.map__detail-value {
+    color: var(--light-tan);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.map__detail-link {
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.map__detail-link:hover {
+    color: var(--green-light);
+}
+
+.map__detail-note {
+    font-size: 0.875rem;
+    color: var(--light-tan);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* Hours section */
+.map__hours {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.map__hours-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.map__hours-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--green-light);
+}
+
+.map__hours-title {
+    color: var(--green-light);
+    font-family: "Fraunces", serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.map__hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.map__hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--light-tan);
+    font-size: 0.9375rem;
+    padding: 0.25rem 0;
+}
+
+.map__hours-row--today {
+    background: rgba(111, 141, 105, 0.15);
+    margin: 0 -0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+}
+
+.map__hours-day {
+    opacity: 0.7;
+}
+
+.map__hours-time {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+.map__hours-time--closed {
+    color: rgba(241, 237, 237, 0.4);
+}
+
+.map__walkins-note {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.8125rem;
+    color: var(--green-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map__walkins-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Directions button */
+.map__directions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    margin-top: 1.5rem;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    color: var(--light-tan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(111, 141, 105, 0.3);
+}
+
+.map__directions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(111, 141, 105, 0.4);
+    gap: 0.875rem;
+}
+
+.map__directions:active {
+    transform: translateY(0);
+}
+
+.map__directions-icon {
+    transition: transform var(--transition-fast);
+}
+
+.map__directions:hover .map__directions-icon {
+    transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .map {
+        padding: 5rem 0;
+    }
+
+    .map__locations {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .map__info {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .map {
+        padding: 4rem 0;
+    }
+
+    .map__subtitle {
+        margin-bottom: 2.5rem;
+    }
+
+    .map__info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .map__location-header {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .map__directions {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .map {
+        padding: 3rem 0;
+    }
+
+    .map__heading {
+        font-size: 2rem;
+    }
+
+    .map__embed {
+        height: 240px;
+    }
+
+    .map__location-name {
+        font-size: 1.25rem;
+    }
+
+    .map__hours {
+        padding: 1.25rem;
+    }
+
+}

@@ -284,11 +284,40 @@
 
     .map__locations {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
     .map__info {
         grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+    }
+    
+    .map__embed {
+        height: 260px;
+    }
+}
+
+/* Tablet-specific adjustments */
+@media (max-width: 900px) and (min-width: 769px) {
+    .map {
+        padding: 4.5rem 0;
+    }
+    
+    .map__locations {
+        gap: 2rem;
+    }
+    
+    .map__info {
+        gap: 1.5rem;
+        padding: 1.75rem;
+    }
+    
+    .map__location-header {
+        padding: 1.5rem 1.75rem;
+    }
+    
+    .map__embed {
+        height: 250px;
     }
 }
 

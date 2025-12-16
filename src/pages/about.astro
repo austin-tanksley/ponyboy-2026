@@ -1,0 +1,181 @@
+---
+import '../styles/global.css';
+import '../styles/components/header.css';
+import '../styles/components/footer.css';
+import '../styles/components/about-page.css';
+import '../styles/utils.css';
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Ponyboy Barbershop, founded by Nick Watson in July 2024. Discover our mission to help barbers grow personally and professionally, and meet Louis, our beloved mascot.">
+    <meta name="theme-color" content="#212121">
+    <title>About Us | Ponyboy Barbershop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="header">
+        <div class="header__content container">
+            <a href="/" aria-label="Ponyboy Barbershop - Home">
+                <img src="/assets/img/Ponyboy_logo_154x52.png" alt="Ponyboy Barbershop" class="header__logo" width="154" height="52">
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="https://getsquire.com/booking/brands/ponyboy" class="btn btn--sm">Book Cut</a>
+                <a href="https://instagram.com/ponyboybarbershop/" class="header__instagram-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/img/icon-instagram.png" alt="" width="24" height="24" aria-hidden="true">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="about-page">
+            <div class="about-page__content container">
+                <h1 class="about-page__title h1">About Ponyboy</h1>
+                
+                <div class="about-page__intro">
+                    <div class="about-page__text">
+                        <p class="about-page__paragraph">
+                            Our owner, <strong>Nick Watson</strong>, founded Ponyboy Barbershop in July 2024 with a clear vision — to create a space where barbers can grow both personally and professionally. His goal was to build a shop focused on development, education, and skill-building to help barbers reach their full potential and build lasting careers.
+                        </p>
+                        <p class="about-page__paragraph">
+                            Through that mission, we've built an amazing team-oriented culture that both our barbers and customers can see and feel every day. At Ponyboy, it's about more than just great haircuts — it's about growth, teamwork, and community.
+                        </p>
+                        <p class="about-page__paragraph">
+                            Thanks to the incredible success of our first year, we were proud to open our second location in October 2025 to continue carrying that mission forward. We're excited to see what the future holds for Ponyboy and the talented team behind it.
+                        </p>
+                    </div>
+                    <div class="about-page__image-wrapper">
+                        <img 
+                            src="/assets/img/about/about_img_01.webp" 
+                            alt="Ponyboy Barbershop interior" 
+                            class="about-page__image"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+
+                <div class="about-page__louis">
+                    <div class="about-page__image-wrapper">
+                        <img 
+                            src="/assets/img/img_1.jpg" 
+                            alt="Louis, the Ponyboy Barbershop mascot" 
+                            class="about-page__image"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="about-page__text">
+                        <h2 class="about-page__subtitle h2">Meet Louis</h2>
+                        <p class="about-page__paragraph">
+                            Louis is our 8-year-old Australian Shepherd and the beloved mascot of Ponyboy Barbershop. You can find him at either location, depending on the day — always happy to work the 9-to-5 right alongside the team.
+                        </p>
+                        <p class="about-page__paragraph">
+                            Louis is our official door greeter, welcoming everyone with a lick and a big smile when he sees a familiar face. He's great with anyone who shows him a little love — and trust us, he gives it right back.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content container">
+            <img class="footer__logo" src="/assets/img/Ponyboy_logo_154x52.png" alt="Ponyboy Barbershop" width="154" height="52">
+            
+            <div class="footer__social">
+                <a href="https://instagram.com/ponyboybarbershop/" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/img/icon-instagram.png" alt="" aria-hidden="true">
+                </a>
+            </div>
+            
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="https://getsquire.com/booking/brands/ponyboy" class="footer__link">Book Now</a>
+                <a href="/#location" class="footer__link">Location</a>
+                <a href="/about" class="footer__link">About</a>
+                <a href="mailto:nick1995watson@yahoo.com" class="footer__link">Contact</a>
+            </nav>
+            
+            <p class="footer__copyright">© 2024 Ponyboy Barbershop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        if (header) {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+                if (currentScroll > 50) {
+                    header.classList.add('header--scrolled');
+                } else {
+                    header.classList.remove('header--scrolled');
+                }
+                lastScroll = currentScroll;
+            }, { passive: true });
+        }
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const animateOnScroll = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    // Disconnect after animation to improve performance
+                    if (entry.target.classList.contains('about-page__intro') || 
+                        entry.target.classList.contains('about-page__louis')) {
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+        // Observe intro section
+        const introSection = document.querySelector('.about-page__intro');
+        if (introSection) {
+            observer.observe(introSection);
+        }
+
+        // Observe Louis section
+        const louisSection = document.querySelector('.about-page__louis');
+        if (louisSection) {
+            observer.observe(louisSection);
+        }
+
+        // Observe image wrappers
+        const imageWrappers = document.querySelectorAll('.about-page__image-wrapper');
+        imageWrappers.forEach(wrapper => {
+            observer.observe(wrapper);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const href = anchor.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -121,7 +121,16 @@
 
 @media (max-width: 1024px) {
     .container {
+        max-width: 900px;
+        padding-inline: 2rem;
+    }
+}
+
+/* Tablet-specific adjustments */
+@media (max-width: 900px) {
+    .container {
         max-width: 768px;
+        padding-inline: 1.75rem;
     }
 }
 

@@ -34,7 +34,7 @@
     text-wrap: balance;
 }
 
-.hero__h1 .h1--fraunces {
+.hero__h1 .h1--green {
     display: inline;
     background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
     -webkit-background-clip: text;
@@ -100,8 +100,28 @@
 /* Responsive */
 @media (max-width: 1024px) {
     .hero__content {
-        gap: 3rem;
+        gap: 2.5rem;
         padding-block: 4rem;
+    }
+    
+    .hero__h1 {
+        font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+    }
+    
+    .hero__tagline {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet-specific adjustments */
+@media (max-width: 900px) and (min-width: 759px) {
+    .hero__content {
+        gap: 2rem;
+        padding-block: 3.5rem;
+    }
+    
+    .hero__video {
+        max-width: 100%;
     }
 }
 
@@ -114,6 +134,12 @@
     
     .hero__text {
         text-align: center;
+        align-items: center;
+    }
+    
+    .hero__video-wrapper {
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
     
